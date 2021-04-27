@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CryptoWatchDog.MainPage">
+    <StackLayout>
+        <ListView x:Name="cryptoView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell 
+                        Text="{Binding name}"
+                        Detail="{Binding price_usd, StringFormat='{}{0:c}'}"
+                        ImageSource="{Binding ico_url}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Editor x:Name="Entry" Placeholder="Add / Remove crypto using the shorthand!"/>
+            <Button x:Name="btnRefresh" Text="⟳" FontSize="Large" Clicked="btnRefresh_Clicked"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnAdd" Text="Add" FontSize="Large" Clicked="btnAdd_Clicked"
+                        HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="btnRemove" Text="Remove" FontSize="Large" Clicked="btnRemove_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
